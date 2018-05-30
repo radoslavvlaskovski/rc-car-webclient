@@ -1,0 +1,25 @@
+{
+  "name": "rc-car-webclient",
+  "version": "0.1.0",
+  "description": "Remote control for toy car using gRPC",
+  "main": "client.js",
+  "dependencies": {
+    "google-protobuf": "^3.5.0",
+    "grpc": "^1.12.2",
+    "grpc-tools": "^1.6.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/radoslavvlaskovski/rc-car-webclient.git"
+  },
+  "author": "Radoslav Vlaskovski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/radoslavvlaskovski/rc-car-webclient/issues"
+  },
+  "homepage": "https://github.com/radoslavvlaskovski/rc-car-webclient#readme"
+}
