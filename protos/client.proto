@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+message Command {
+    enum CommandType {
+        Forward = 0;
+        Backward = 1;
+        Left = 2;
+        Right = 3;
+        ForwardLeft = 4;
+        ForwardRight = 5;
+        BackwardLeft = 6;
+        BackwardRight = 7;
+        ShutDown = 8;
+    }
+
+    CommandType commandType = 1;
+}
+
+message Empty {
+}
+
+service CommandHandler {
+
+    rpc SendCommand(Command) returns (Empty) {}
+}
