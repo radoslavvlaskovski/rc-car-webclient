@@ -2,7 +2,7 @@
 
 'use strict';
 var grpc = require('grpc');
-var protos_client_pb = require('../protos/client_pb.js');
+var protos_client_pb = require('.//client_pb.js');
 
 function serialize_Command(arg) {
   if (!(arg instanceof protos_client_pb.Command)) {

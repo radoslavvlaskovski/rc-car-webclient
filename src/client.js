@@ -1,7 +1,8 @@
 
+var messages = require('./protos/client_pb');
+var services = require('./protos/client_grpc_pb');
+
 function main() {
-  var messages = require('./protos/client_pb');
-  var services = require('./protos/client_grpc_pb');
   var grpc = require('grpc');
 
   var client = new services.CommandHandlerClient('localhost:50051',

@@ -4,18 +4,25 @@
   "description": "Remote control for toy car using gRPC",
   "main": "server.js",
   "dependencies": {
+    "child_process": "^1.0.2",
     "express": "^4.16.3",
     "fs": "0.0.1-security",
     "google-protobuf": "^3.5.0",
     "grpc": "^1.12.2",
     "grpc-tools": "^1.6.6",
     "http": "0.0.0",
+    "net": "^1.0.2",
     "nodemon": "^1.17.5",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "require": "^2.4.20",
+    "webpack": "^4.12.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "webpack-cli": "^3.0.3"
+  },
   "scripts": {
-    "start": "nodemon .",
+    "start": "node server.js",
+    "dev": "webpack && npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
