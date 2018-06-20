@@ -3,11 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <title>Remote</title>
-    <script type="text/javascript" src="./bundle.js"></script>
+
+    <style>
+        th, td {
+            padding: 5px;
+            text-align: left;
+        }
+        .left-col {
+            float: right;
+        }
+        .center-col {
+            text-align: center;
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
 
-<button onclick="main();">Click me</button>
+<table>
+    <tbody>
+        <tr>
+            <td>
+                <button id="fl" class="left-col">FORWARD LEFT</button>
+            </td>
+            <td>
+                <button id="f" class="center-col">FORWARD</button>
+            </td>
+            <td>
+                <button id="fr" >FORWARD RIGHT</button>
+            </td>
+        </tr>
 
+        <tr>
+            <td>
+                <button id="l" class="left-col">LEFT</button>
+            </td>
+            <td class="center-col">
+                O
+            </td>
+            <td>
+                <button id="r" class="fb">RIGHT</button>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <button id="bl" class="left-col">BACKWARD LEFT</button>
+            </td>
+            <td class="center-col">
+                <button id="b" class="fb">BACKWARD</button>
+            </td>
+            <td>
+                <button id="br" class="fb">BACKWARD RIGHT</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+    <script type="text/javascript">
+        function setDirection(dir) {
+            $.ajax({
+                type: "POST",
+                url: "/setDirection",
+                data: {direction: dir},
+                success: function() {
+                    console.log("trueeee");
+                }
+            });
+        }
+
+        $( document ).ready(function() {
+            $("#fl").click(function() {
+                setDirection("fl");
+                console.log( "Handler for .click() called." );
+            });
+            console.log( "ready!" );
+        });
+
+
+    </script>
 </body>
 </html>
