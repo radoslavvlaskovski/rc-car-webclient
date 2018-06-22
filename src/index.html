@@ -5,6 +5,14 @@
     <title>Remote</title>
 
     <style>
+        body {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
         th, td {
             padding: 5px;
             text-align: left;
@@ -23,65 +31,65 @@
 
 <table>
     <tbody>
-        <tr>
-            <td>
-                <button id="fl" class="left-col">FORWARD LEFT</button>
-            </td>
-            <td>
-                <button id="f" class="center-col">FORWARD</button>
-            </td>
-            <td>
-                <button id="fr" >FORWARD RIGHT</button>
-            </td>
-        </tr>
+    <tr>
+        <td>
+            <button id="FL" class="dir left-col">FORWARD LEFT</button>
+        </td>
+        <td>
+            <button id="F" class="dir center-col">FORWARD</button>
+        </td>
+        <td>
+            <button id="FR" class="dir">FORWARD RIGHT</button>
+        </td>
+    </tr>
 
-        <tr>
-            <td>
-                <button id="l" class="left-col">LEFT</button>
-            </td>
-            <td class="center-col">
-                O
-            </td>
-            <td>
-                <button id="r" class="fb">RIGHT</button>
-            </td>
-        </tr>
+    <tr>
+        <td>
+            <button id="L" class="dir left-col">LEFT</button>
+        </td>
+        <td class="center-col">
+            O
+        </td>
+        <td>
+            <button id="R" class="dir fb">RIGHT</button>
+        </td>
+    </tr>
 
-        <tr>
-            <td>
-                <button id="bl" class="left-col">BACKWARD LEFT</button>
-            </td>
-            <td class="center-col">
-                <button id="b" class="fb">BACKWARD</button>
-            </td>
-            <td>
-                <button id="br" class="fb">BACKWARD RIGHT</button>
-            </td>
-        </tr>
+    <tr>
+        <td>
+            <button id="BL" class="dir left-col">BACKWARD LEFT</button>
+        </td>
+        <td class="center-col">
+            <button id="B" class="dir fb">BACKWARD</button>
+        </td>
+        <td>
+            <button id="BR" class="dir fb">BACKWARD RIGHT</button>
+        </td>
+    </tr>
     </tbody>
 </table>
 
-    <script type="text/javascript">
-        function setDirection(dir) {
-            $.ajax({
-                type: "POST",
-                url: "/setDirection",
-                data: {direction: dir},
-                success: function() {
-                    console.log("trueeee");
-                }
-            });
-        }
-
-        $( document ).ready(function() {
-            $("#fl").click(function() {
-                setDirection("fl");
-                console.log( "Handler for .click() called." );
-            });
-            console.log( "ready!" );
+<script type="text/javascript">
+    function setDirection(dir) {
+        $.ajax({
+            type: "POST",
+            url: "/setDirection",
+            data: {direction: dir}
         });
+    }
+
+    $( document ).ready(function() {
+        $(".dir").bind("touchstart mousedown", function() {
+            setDirection(this.id);
+            console.log(this.id);
+        });
+        $(".dir").bind("touchend mouseup", function() {
+            setDirection("S");
+            console.log("stop");
+        });
+    });
 
 
-    </script>
+</script>
 </body>
 </html>
